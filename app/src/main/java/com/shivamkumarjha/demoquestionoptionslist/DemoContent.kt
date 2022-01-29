@@ -26,7 +26,12 @@ fun DemoContent() {
     fun handleQuestionDataEvents(events: QuestionDataEvents) {
         when (events) {
             is QuestionDataEvents.AddQuestion -> {
-                questions.add(QuestionData(mutableStateOf(""), mutableStateListOf()))
+                questions.add(
+                    QuestionData(
+                        mutableStateOf(""),
+                        mutableStateListOf(mutableStateOf(""))
+                    )
+                )
             }
             is QuestionDataEvents.RemoveQuestion -> {
                 questions.removeAt(events.index)
